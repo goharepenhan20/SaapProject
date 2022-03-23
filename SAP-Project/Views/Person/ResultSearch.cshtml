@@ -1,0 +1,47 @@
+﻿@using Utilites
+@model Utilites.ReturnData<SearchListViewModel>
+@{
+    ViewData["Title"] = "ResultSearch";
+    Layout = "~/Views/Shared/_SAPlayout.cshtml";
+    int row = 0;
+}
+
+<div class="text-center FavColor">
+    <h3>
+        نتیجه جستجوی شما
+    </h3>
+    <p>
+        تعداد @Model.DataCount نتیجه یافت شد
+    </p>
+</div>
+@if (Model.DataCount > 0)
+{
+    <table class="table table-bordered text-center">
+        <thead class=" FavColor">
+        <tr>
+            <th>ردیف</th>
+            <th>نام</th>
+            <th>نام خانوادگی</th>
+            <th>کد ملی</th>
+            <th>تاریخ ثبت</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Data)
+        {
+            row += 1;
+            <tr>
+                <td>@row</td>
+                <td>@item.Name</td>
+                <td>
+                    <a asp-controller="Person" asp-action="PersonInfoInSearch" asp-route-Id="@item.Id">@item.LastName</a>
+                </td>
+                <td>@item.CodeMelli</td>
+                <td>@item.Insertdate.ToShamsi().ToString("yyyy/MM/dd")</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    <a class="btn btn-default BackHistory">بازگشت</a>
+}
+

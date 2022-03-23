@@ -1,0 +1,166 @@
+﻿@using DataLayer.EnumToPersian
+@using Utilites
+@model DataLayer.Entity.Person.PersonEntity
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_SAPlayout.cshtml";
+}
+
+<div class="text-center">
+    <h3 class="FavColor">اطلاعات کاربری @Model.Name @Model.LastName</h3>
+</div>
+<div>
+    <dl>
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <dt>
+                    <label asp-for="Name"></label>
+                </dt>
+                <dd>
+                    <input readonly="readonly" asp-for="Name" class="form-control" />
+                </dd>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <dt>
+                    <label asp-for="LastName"></label>
+                </dt>
+                <dd>
+                    <input readonly="readonly" asp-for="LastName" class="form-control" />
+                </dd>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <dt>
+                    <label asp-for="CodeMelli"></label>
+                </dt>
+                <dd>
+                    <input readonly="readonly" asp-for="CodeMelli" class="form-control" />
+                </dd>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="row">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <dt>
+                    <label asp-for="Education"></label>
+                </dt>
+                <dd>
+                    <input readonly="readonly" value="@Model.Education.ToPersianEducation()" class="form-control" />
+                </dd>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <dt>
+                    <label asp-for="Reshteh"></label>
+                </dt>
+                <dd>
+                    <input readonly="readonly" asp-for="Reshteh" class="form-control" />
+                </dd>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <dt>
+                    <label asp-for="Gerayesh"></label>
+                </dt>
+                <dd>
+                    <input readonly="readonly" asp-for="Gerayesh" class="form-control" />
+                </dd>
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <dt>
+                    <label asp-for="Moaadel"></label>
+                </dt>
+                <dd>
+                    <input readonly="readonly" asp-for="Moaadel" class="form-control" />
+                </dd>
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <dt>
+                    <label asp-for="UniversityName"></label>
+                </dt>
+                <dd>
+                    <input readonly="readonly" asp-for="UniversityName" class="form-control" />
+                </dd>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <dt>
+                    <label asp-for="UnivesityType"></label>
+                </dt>
+                <dd>
+                    <input readonly="readonly" value="@Model.UnivesityType.ToPersianTypeUniversity()" class="form-control" />
+                </dd>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                <dt>
+                    <label asp-for="UniversityAddress"></label>
+                </dt>
+                <dd>
+                    <input readonly="readonly" asp-for="UniversityAddress" class="form-control" />
+                </dd>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <dt>
+                    <label asp-for="EnterToUniversityDate"></label>
+                </dt>
+                <dd>
+                    <input readonly="readonly" value="@Model.EnterToUniversityDate.ToShamsi().ToString("yyyy/MM/dd")" class="form-control" />
+                </dd>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <dt>
+                    <label asp-for="EnterToUniversityDate"></label>
+                </dt>
+                <dd>
+                    <input readonly="readonly" value="@Model.ExiteFromUniversityDate.ToShamsi().ToString("yyyy/MM/dd")" class="form-control" />
+                </dd>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                <dt>
+                    <label asp-for="InsertDate"></label>
+                </dt>
+                <dd>
+                    <input readonly="readonly" value="@Model.InsertDate.ToShamsi().ToString("yyyy/MM/dd")" class="form-control" />
+                </dd>
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <dt>
+                </dt>
+                <dd>
+                    <a class="btn btn-primary btn-block BackHistory">بازگشت</a>
+                </dd>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <dt>
+                </dt>
+                <dd>
+                    <a class="btn btn-warning btn-block" asp-controller="Person" asp-action="Edit" asp-route-PersonId="@Model.Id">ویرایش</a>
+                </dd>
+            </div>
+        </div>
+    </dl>
+</div>
+
+

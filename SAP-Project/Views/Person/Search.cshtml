@@ -1,0 +1,65 @@
+﻿@model SearchFormViewModel
+@{
+    ViewData["Title"] = "Search";
+    Layout = "~/Views/Shared/_SAPlayout.cshtml";
+}
+<div class="text-center">
+    <h3 class="FavColor">جستجو</h3>
+</div>
+<br/>
+<form asp-controller="Person" asp-action="ResultSearch">
+    <div asp-validation-summary="ModelOnly" class="validation"></div>
+    <dl>
+        <div class="row">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                <dt>
+                    <label asp-for="StartDate"></label>
+                </dt>
+                <dd>
+                    <input value="@ViewBag.StartTime" name="StartDate" class="form-control elementClass" required=""/>
+                    <span asp-validation-for="StartDate" class="validation"></span>
+                </dd>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                <dt>
+                    <label asp-for="EndDate"></label>
+                </dt>
+                <dd>
+                    <input value="@ViewBag.EndTime" name="EndDate" class="form-control elementClass" required=""/>
+                    <span asp-validation-for="EndDate" class="validation"></span>
+
+                </dd>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                <dt>
+                    <label asp-for="Fullname"></label>
+                </dt>
+                <dd>
+                    <input asp-for="Fullname" class="form-control"/>
+                    <span asp-validation-for="Fullname" class="validation"></span>
+
+                </dd>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                <dt>
+                    <label asp-for="CodeMelli"></label>
+                </dt>
+                <dd>
+                    <input asp-for="CodeMelli" class="form-control"/>
+                    <span asp-validation-for="CodeMelli" class="validation"></span>
+
+                </dd>
+            </div>
+        </div>
+        <br/>
+        <div>
+            <dt>
+
+            </dt>
+            <dd>
+                <input type="submit" value="جستجو" class="btn btn-secondary btn-block"/>
+            </dd>
+        </div>
+    </dl>
+</form>
+

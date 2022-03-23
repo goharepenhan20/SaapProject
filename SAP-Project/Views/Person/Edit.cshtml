@@ -1,0 +1,168 @@
+﻿@model DataLayer.Entity.Person.PersonEntity
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_SAPlayout.cshtml";
+}
+
+
+<div class="text-center">
+    <h3 class="FavColor">ویرایش اطلاعات کاربر</h3>
+</div>
+
+<form asp-controller="Person" asp-action="Edit" method="post">
+    <div class="validation" asp-validation-summary="ModelOnly"></div>
+    <dl>
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <dt>
+                    <label asp-for="Name"></label>
+                </dt>
+                <dd>
+                    <input asp-for="Name" class="form-control" />
+                    <span class="validation" asp-validation-for="Name"></span>
+                </dd>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <dt>
+                    <label asp-for="LastName"></label>
+                </dt>
+                <dd>
+                    <input asp-for="LastName" class="form-control" />
+                    <span class="validation" asp-validation-for="LastName"></span>
+
+                </dd>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <dt>
+                    <label asp-for="CodeMelli"></label>
+                </dt>
+                <dd>
+                    <input asp-for="CodeMelli" class="form-control" />
+                    <span class="validation" asp-validation-for="CodeMelli"></span>
+
+                </dd>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="row">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <dt>
+                    <label asp-for="Education"></label>
+                </dt>
+                <dd>
+                    <select asp-for="Education" class="form-control" asp-items="@ViewBag.EducationListItem">
+                    </select>
+                </dd>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <dt>
+                    <label asp-for="Reshteh"></label>
+                </dt>
+                <dd>
+                    <input asp-for="Reshteh" class="form-control" />
+                    <span class="validation" asp-validation-for="Reshteh"></span>
+
+                </dd>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <dt>
+                    <label asp-for="Gerayesh"></label>
+                </dt>
+                <dd>
+                    <input asp-for="Gerayesh" class="form-control" />
+                    <span class="validation" asp-validation-for="Gerayesh"></span>
+
+                </dd>
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <dt>
+                    <label asp-for="Moaadel"></label>
+                </dt>
+                <dd>
+                    <input asp-for="Moaadel" class="form-control" />
+                    <span class="validation" asp-validation-for="Moaadel"></span>
+
+                </dd>
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <dt>
+                    <label asp-for="UnivesityType"></label>
+                </dt>
+                <dd>
+                    <select class="form-control" asp-for="UnivesityType" asp-items="@ViewBag.UniversityTypeListItem"></select>
+                </dd>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <dt>
+                    <label asp-for="UniversityName"></label>
+                </dt>
+                <dd>
+                    <input class="form-control" asp-for="UniversityName" />
+                    <span class="validation" asp-validation-for="UniversityName"></span>
+
+                </dd>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+                <dt>
+                    <label asp-for="UniversityAddress"></label>
+                </dt>
+                <dd>
+                    <input asp-for="UniversityAddress" class="form-control" />
+                    <span class="validation" asp-validation-for="UniversityAddress"></span>
+
+                </dd>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <dt>
+                    <label asp-for="EnterToUniversityDate"></label>
+                </dt>
+                <dd>
+                    <input class="form-control elementClass" value="@Model.EnterToUniversityDate" name="EnterToUniversityDate" />
+                    <span class="validation" asp-validation-for="EnterToUniversityDate"></span>
+
+                </dd>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <label asp-for="ExiteFromUniversityDate"></label>
+                <input name="ExiteFromUniversityDate" value="@Model.ExiteFromUniversityDate" class="form-control elementClass" />
+                <span class="validation" asp-validation-for="ExiteFromUniversityDate"></span>
+
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <dt>
+
+            </dt>
+            <dd>
+                <input asp-for="Id" hidden="" />
+                <input asp-for="InsertDate" hidden="" />
+                <input type="submit" value="ویرایش" class="btn btn-warning btn-block" />
+
+            </dd>
+        </div>
+
+    </dl>
+</form>

@@ -1,0 +1,49 @@
+﻿@using DataLayer.EnumToPersian
+@using Utilites
+@model UniversityInfoViewModel
+@{
+    ViewData["Title"] = "UniversityInfo";
+    Layout = "~/Views/Shared/_SAPlayout.cshtml";
+}
+<div class="text-center FavColor">
+    <h3>
+        اطلاعات دانشگاه @Model.UniversityName
+    </h3>
+</div>
+
+<table class="table table-bordered text-center">
+    <thead class="FavColor">
+    <tr>
+        <th>نام دانشگاه</th>
+        <th>نوع دانشگاه</th>
+        <th>آدرس دانشگاه</th>
+        <th>تاریخ ورود</th>
+        <th>تاریخ فارغ التحصیلی</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>@Model.UniversityName</td>
+        <td>@Model.UnivesityType.ToPersianTypeUniversity()</td>
+        <td>
+            @if (Model.UniversityAddress.Length > 25 && Model.UniversityAddress != null)
+            {
+                <p data-toggle="tooltip" data-placement="bottom" title="@Model.UniversityAddress">@Model.UniversityAddress.Substring(0, 25)</p>
+            }
+            else if (Model.UniversityAddress.Length <= 25 && Model.UniversityAddress != null)
+            {
+                <p>@Model.UniversityAddress</p>
+            }
+            else
+            {
+                <p>آدرسی ثبت نشده است</p>
+            }
+        </td>
+            
+        <td>@Model.EnterDateToUniversity.ToShamsi().ToString("yyyy/MM/dd")</td>
+        <td>@Model.ExiteDateFromUniversity.ToShamsi().ToString("yyyy/MM/dd")</td>
+    </tr>
+    </tbody>
+</table>
+
+<a class="btn btn-default BackHistory">بازگشت</a>

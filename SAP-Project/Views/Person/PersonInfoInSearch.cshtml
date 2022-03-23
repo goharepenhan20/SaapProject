@@ -1,0 +1,38 @@
+﻿@using DataLayer.EnumToPersian
+@model PersonInfoInSearchViewModel
+@{
+    ViewData["Title"] = "PersonInfoInSearch";
+    Layout = "~/Views/Shared/_SAPlayout.cshtml";
+}
+
+<div class="text-center FavColor">
+    <h3>
+        اطلاعات کاربری @Model.Fullname
+    </h3>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>نام ونام خانوادگی</th>
+        <th>مقطع تحصیلی</th>
+        <th>رشته تحصیلی</th>
+        <th>گرایش</th>
+        <th>معدل</th>
+        <th>نام دانشگاه</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>@Model.Fullname</td>
+        <td>@Model.Education.ToPersianEducation()</td>
+        <td>@Model.Reshteh</td>
+        <td>@Model.Gerayesh</td>
+        <td>@Model.Moaadel</td>
+        <td>
+            <a asp-controller="Person" asp-action="UniversityInfo" asp-route-id="@Model.Id">@Model.UniversityName</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a class="btn btn-default BackHistory">بازگشت</a>
